@@ -1,2 +1,2 @@
-# react-course-by-Max7
+# React_course_by_Max3
 Created with CodeSandbox
