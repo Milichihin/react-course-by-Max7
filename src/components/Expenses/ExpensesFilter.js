@@ -48,7 +48,9 @@ const ExpensesFilter = (props) => {
         <select value={props.selectedM} onChange={receiveMonth}>
           <option value="all">choose month</option>
           {monthNames.map((monthNames, index) => (
-            <option key={index}>{monthNames}</option>
+            <option key={index} value={index}>
+              {monthNames}
+            </option>
           ))}
         </select>
       </div>
