@@ -32,6 +32,12 @@ const ExpensesFilter = (props) => {
     "December"
   ];
 
+  const optionMonths = monthNames.map((monthNames, index) => (
+    <option key={index} value={index}>
+      {monthNames}
+    </option>
+  ));
+
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
@@ -47,11 +53,7 @@ const ExpensesFilter = (props) => {
         <label>Filter by month: &nbsp; {monthNames[month]}</label>
         <select value={props.selectedM} onChange={receiveMonth}>
           <option value="all">choose month</option>
-          {monthNames.map((monthNames, index) => (
-            <option key={index} value={index}>
-              {monthNames}
-            </option>
-          ))}
+          {optionMonths}
         </select>
       </div>
     </div>
