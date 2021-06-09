@@ -16,22 +16,25 @@ function Expenses(props) {
     setGiveMonth(event);
   };
 
-  // const filteredExpenses = props.passMainArr.filter(
-  //   (el) =>
-  //     el.date.getFullYear().toString() === firstYear &&
-  //     el.date.getMonth().toString() === firstMonth
-  // );
-
-  // const filteredExpensesYear = props.passMainArr.filter(
-  //   (el) => el.date.getFullYear().toString() === firstYear
-  // );
-
   const filteredExpensesAll = props.passMainArr.filter((el) =>
     firstMonth === "all"
       ? el.date.getFullYear().toString() === firstYear
       : el.date.getFullYear().toString() === firstYear &&
         el.date.getMonth().toString() === firstMonth
   );
+
+  let expensesContent = <p>No content</p>;
+
+  if (filteredExpensesAll.length > 0) {
+    expensesContent = filteredExpensesAll.map((ele) => (
+      <ExpenseItem
+        key={ele.id}
+        title={ele.title}
+        amount={ele.amount}
+        date={ele.date}
+      />
+    ));
+  }
 
   return (
     <Card className="expenses">
@@ -41,14 +44,7 @@ function Expenses(props) {
         onSaveExpenseYear={giveMeYear}
         onSaveExpenseMonth={giveMeMonth}
       />
-      {filteredExpensesAll.map((ele) => (
-        <ExpenseItem
-          key={ele.id}
-          title={ele.title}
-          amount={ele.amount}
-          date={ele.date}
-        />
-      ))}
+      {expensesContent}
     </Card>
   );
 }
