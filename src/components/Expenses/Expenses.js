@@ -1,4 +1,4 @@
-import ExpenseItem from "./ExpenseItem";
+import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpensesFilter";
 import "./Expenses.css";
 import Card from "../UI/Card";
@@ -23,18 +23,18 @@ function Expenses(props) {
         el.date.getMonth().toString() === firstMonth
   );
 
-  let expensesContent = <p>No content</p>;
+  // let expensesContent = <p>No content</p>;
 
-  if (filteredExpensesAll.length > 0) {
-    expensesContent = filteredExpensesAll.map((ele) => (
-      <ExpenseItem
-        key={ele.id}
-        title={ele.title}
-        amount={ele.amount}
-        date={ele.date}
-      />
-    ));
-  }
+  // if (filteredExpensesAll.length > 0) {
+  //   expensesContent = filteredExpensesAll.map((ele) => (
+  //     <ExpenseItem
+  //       key={ele.id}
+  //       title={ele.title}
+  //       amount={ele.amount}
+  //       date={ele.date}
+  //     />
+  //   ));
+  // }
 
   return (
     <Card className="expenses">
@@ -44,7 +44,7 @@ function Expenses(props) {
         onSaveExpenseYear={giveMeYear}
         onSaveExpenseMonth={giveMeMonth}
       />
-      {expensesContent}
+      <ExpensesList items={filteredExpensesAll} />
     </Card>
   );
 }
