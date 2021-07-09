@@ -23,6 +23,12 @@ const DUMMY_ARR = [
     title: "New Desk (Wooden)",
     amount: 450,
     date: new Date(2021, 5, 12)
+  },
+  {
+    id: "e5",
+    title: "Some New Stuff",
+    amount: 450,
+    date: new Date(2021, 5, 12)
   }
 ];
 
